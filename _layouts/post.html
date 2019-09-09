@@ -9,7 +9,15 @@ layout: default
     {{ content }}
   </div>
   {% include categories.html %}
-  <div class="date">Written on {{ page.date | date: "%B %e, %Y" }}</div>
+  <div class="date">
+    Written by
+    <span>
+      {% assign author = site.authors | where: 'name', page.author | first %} {%
+      if author %} <a href="{{ author.url }}">{{ author.name }}</a>
+      {% endif %}
+    </span>
+    on {{ page.date | date: "%B %e, %Y" }}
+  </div>
 
   {% include disqus.html %}
 </article>

@@ -3,6 +3,7 @@ layout: post
 title: Jekyll Front Matter
 categories: [Jekyll]
 datetime: 30-06-2019
+author: Sirwan
 ---
 
 Jekyll is using something so-called Front matter which is used to set variables or page's metadata on a page and use them on runtime. YAML front matter must always be at the top of the document:
