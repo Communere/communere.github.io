@@ -1,5 +1,5 @@
 ---
-name: Sirwan
+name: Sirwan Afifi
 position: Software developer
 ---
 

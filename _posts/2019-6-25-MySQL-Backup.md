@@ -3,7 +3,7 @@ layout: post
 title: MySQL Scheduled Backup
 categories: [MySQL, Database, Backup, Scheduled Task, Windows]
 datetime: 25-06-2019
-author: Sirwan
+author: Sirwan Afifi
 ---
 
 Have you ever attempted to set up an automated backup of your MySQL database? The process of creating a scheduled backup is not as easy as SQL Server. In MySQL, we must use the command line to make this process automatically. The method uses a batch file to automatically backup and zip files each night at midnight. This happens using `mysqldump` command-line tool using Windows Task Scheduler:
@@ -12,7 +12,7 @@ Have you ever attempted to set up an automated backup of your MySQL database? Th
 
 Here’s the command which is being called behind the scene:
 
-```js
+{% highlight bash %}
 
 set dbUser="DB_USER"
 set dbPassword="YOUR PASSWORD"
@@ -24,7 +24,7 @@ set zip="C:\Program Files\7-Zip\7z.exe"
 %mysqldump% --host="MYSQL_SERVER_ADDRESS" --user=%dbUser% -p@%dbPassword% --single-transaction --add-drop-table --databases %dbName% > %backupDir%\%dirName%\output.sql
 %zip% a -tgzip %backupDir%\%dirName%\%fileSuffix%output.sql.gz %backupDir%\%dirName%\output.sql
 del %backupDir%\%dirName%\output.sql
-```
+{% endhighlight %}
 
 This command, first backups the database then uses `7zip` to zip the backup. Then the `sql` is deleted as we don't need it anymore.
 
