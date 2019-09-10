@@ -12,7 +12,7 @@ Have you ever attempted to set up an automated backup of your MySQL database? Th
 
 Here’s the command which is being called behind the scene:
 
-```js
+{% highlight bash %}
 
 set dbUser="DB_USER"
 set dbPassword="YOUR PASSWORD"
@@ -24,7 +24,7 @@ set zip="C:\Program Files\7-Zip\7z.exe"
 %mysqldump% --host="MYSQL_SERVER_ADDRESS" --user=%dbUser% -p@%dbPassword% --single-transaction --add-drop-table --databases %dbName% > %backupDir%\%dirName%\output.sql
 %zip% a -tgzip %backupDir%\%dirName%\%fileSuffix%output.sql.gz %backupDir%\%dirName%\output.sql
 del %backupDir%\%dirName%\output.sql
-```
+{% endhighlight %}
 
 This command, first backups the database then uses `7zip` to zip the backup. Then the `sql` is deleted as we don't need it anymore.
 
