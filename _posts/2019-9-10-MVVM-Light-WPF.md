@@ -9,8 +9,8 @@ readingtime: 20m
 
 This article focuses on MVVM Light and WPF.
 
-- TOC
-  {:toc}
+* TOC
+{:toc}
 
 # MVVM
 
@@ -87,7 +87,7 @@ App.xaml:
 {% highlight xml %}
 <Application.Resources>
 <vm:ViewModelLocator x:Key="Locator"
-d:IsDataSource="True" />
+        d:IsDataSource="True" />
 </Application.Resources>
 {% endhighlight %}
 
@@ -124,7 +124,7 @@ We have also registered the `MainViewModel` which contains our data bindings for
 
 ViewModelLocator.cs:
 
-```c#
+{% highlight csharp %}
 public MainViewModel Main
 {
     get
@@ -132,7 +132,7 @@ public MainViewModel Main
         return ServiceLocator.Current.GetInstance<MainViewModel>();
     }
 }
-```
+{% endhighlight %}
 
 # Data Service
 
@@ -140,7 +140,7 @@ To connect to data, we use DataServices.
 
 DataService.cs:
 
-```c#
+{% highlight csharp %}
 public class DataService : IDataService
 {
     public void GetData(Action<DataItem, Exception> callback)
@@ -149,18 +149,18 @@ public class DataService : IDataService
         callback(item, null);
     }
 }
-```
+{% endhighlight %}
 
 It derives from `IDataService` interface and it only contains a `GetData` function to return the only data it has.
 
 IDataService.cs:
 
-```c#
+{% highlight csharp %}
 public interface IDataService
 {
     void GetData(Action<DataItem, Exception> callback);
 }
-```
+{% endhighlight %}
 
 `DataItem` is just a simple class that contains a property `Title`.
 
@@ -168,7 +168,7 @@ It's also worth taking a look at DesignDataService:
 
 DesignDataService.cs:
 
-```c#
+{% highlight csharp %}
 public class DesignDataService : IDataService
 {
     public void GetData(Action<DataItem, Exception> callback)
@@ -177,7 +177,7 @@ public class DesignDataService : IDataService
         callback(item, null);
     }
 }
-```
+{% endhighlight %}
 
 What you see here, is almost exactly what you had with `DataService`, but in a real case scenario, these two would be different.
 
@@ -187,7 +187,7 @@ Last but not least, Let's take a look at our `MainViewModel` class. the View-mod
 
 MainViewModel.cs:
 
-```c#
+{% highlight csharp %}
 private string _welcomeTitle = string.Empty;
 
 public string WelcomeTitle
@@ -201,13 +201,13 @@ public string WelcomeTitle
         Set(ref _welcomeTitle, value);
     }
 }
-```
+{% endhighlight %}
 
 The `WelcomTitle` property is the field that will be bound to a xaml object and it's get and set functions will get private field `_welcomeTitle` and set it's data respectively.
 
 MainViewModel.cs:
 
-```c#
+{% highlight csharp %}
 public MainViewModel(IDataService dataService)
 {
     _dataService = dataService;
@@ -222,13 +222,13 @@ public MainViewModel(IDataService dataService)
             WelcomeTitle = item.Title;
         });
 }
-```
+{% endhighlight %}
 
 As you can see, the constructor for this class is being called with an `IDataService` parameter (Do a search for Dependency Injection if you don't know how that works). We'll set our `WelcomeTitle` from the data we get from `dataService`.
 
 MainWindow.xaml
 
-```xml
+{% highlight xml %}
 ...
 DataContext="{Binding Main, Source={StaticResource Locator}}">
 ...
@@ -239,7 +239,7 @@ DataContext="{Binding Main, Source={StaticResource Locator}}">
            VerticalAlignment="Center"
            HorizontalAlignment="Center"
            TextWrapping="Wrap" />
-```
+{% endhighlight %}
 
 The xaml file, sets the `DataContext` to our Main class. Take note, this Main property, is not exactly the class name. It's the field we previously had in the `ViewModelLocator` class which was of the type `MainViewModel`. The `WelcomeTitle` (which is being called by the `TextBlock`) binds to the field in the `MainViewModel` class.
 
@@ -266,7 +266,7 @@ This is the full code of the file:
 
 LoginWindow.xaml:
 
-```xml
+{% highlight xml %}
 <Window x:Class="SampleProject.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -305,7 +305,8 @@ LoginWindow.xaml:
         </Button>
     </Grid>
 </Window>
-```
+{% endhighlight %}
+
 
 `DataContext` is bound to the Login field in the `ViewModelLocator` class. Just like what we had with Main. (Add that yourself) Both `textboxes` are bound to a field in the `LoginViewModel` class that i'll show you in a minute. The Button is also bound to a `RelayCommand` field in that class. As you see, we can pass Parameters to the command as form of a `CommandParameter`. Here, since we had 2 parameters, we used a `MultiBinding`. `MultiBinding`, needs a Converter to be able to convert the elements into a class. The Converter is defined a little higher, inside Grid.Resources element. the `LoginConverter` object, is defined in the `LoginViewModel` (Probably should be in a better place)
 
@@ -315,7 +316,7 @@ Here's the full code for `LoginViewModel` class. Also, we included the `LoginInp
 
 LoginViewModel.cs:
 
-```c#
+{% highlight csharp %}
 namespace SampleProject.ViewModel
 {
     public class LoginInput: ObservableObject
@@ -361,7 +362,7 @@ namespace SampleProject.ViewModel
         }
     }
 }
-```
+{% endhighlight %}
 
 `LoginCommand` is of type `RelayCommand` that takes `LoginInput` as parameter. `InputParams` is of type `LoginInput`, and the `textboxes` are bound to this object. Defining `RelayCommand`, we need to pass to parameter. The command `funcition` (here: login), and a `CanExecute` function (We simply set that to true for now). Also, the login function, just shows a dialog that says login works. We want to change that so that it would navigate to the `MainWindow` page.
 
@@ -375,7 +376,7 @@ important: Don't forget to keep the previous data and move it to a new page. let
 
 MainWindow.xaml:
 
-```xml
+{% highlight xml %}
 <Window x:Class="SampleProject.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -388,7 +389,7 @@ MainWindow.xaml:
 
     <Frame Name="MainFrame" Source="./LoginWindow.xaml" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
 </Window>
-```
+{% endhighlight %}
 
 It only contains a `Frame` component, which as default source, we set the `LoginWindow` page. The Name is also very important (MainFrame). we'll be referencing that in a minute.
 
@@ -396,12 +397,12 @@ Now, let's add the navigation service. First, add an interface:
 
 IBHNavigationService.cs:
 
-```c#
+{% highlight csharp %}
 public interface IBHNavigationService : INavigationService
 {
     object Parameter { get; set; }
 }
-```
+{% endhighlight %}
 
 the `INavigationService` base class is from MVVM Light.
 
@@ -409,7 +410,7 @@ Now add the class:
 
 BHNavigationService.cs:
 
-```c#
+{% highlight csharp %}
 public class BHNavigationService : IBHNavigationService, INotifyPropertyChanged
 {
     #region Fields
@@ -532,7 +533,7 @@ public class BHNavigationService : IBHNavigationService, INotifyPropertyChanged
     }
     #endregion
 }
-```
+{% endhighlight %}
 
 From the top:
 
@@ -550,7 +551,7 @@ We then need to register the service into the locator.
 
 ViewModelLocator.cs:
 
-```c#
+{% highlight csharp %}
 private static void SetupNavigation()
 {
     BHNavigationService bHNavigationService = new BHNavigationService();
@@ -558,7 +559,7 @@ private static void SetupNavigation()
     bHNavigationService.Configure("Main", new Uri("../MainPage.xaml", UriKind.Relative));
     SimpleIoc.Default.Register<IBHNavigationService>(() => bHNavigationService);
 }
-```
+{% endhighlight %}
 
 Then call this in the constructor.
 
@@ -568,7 +569,7 @@ In the Login view-model, this is how we should change our login function:
 
 LoginViewModel.cs:
 
-```c#
+{% highlight csharp %}
 private void login(LoginInput arg)
 {
     if (arg.username.Equals("admin") && arg.password.Equals("admin"))
@@ -580,7 +581,7 @@ private void login(LoginInput arg)
         MessageBox.Show("Login failed");
     }
 }
-```
+{% endhighlight %}
 
 And that's it. now if you run the project, it should startup with the login page. then if you enter "admin" "admin", it should navigate to the Main page.
 
@@ -594,7 +595,7 @@ So default would be "Main Page" and we'll simply change that with the menu item.
 
 MainPage.xaml:
 
-```xml
+{% highlight xml %}
 <Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -655,13 +656,13 @@ MainPage.xaml:
 
     </Grid>
 </Page>
-```
+{% endhighlight %}
 
 We've added another Grid element to be the father of all elements, and a DockPanel for the side panel. The dockpanel contains a ListBox of menu items. The ListboxItem template is defined a little higher in the same file. It's a simple TextBlock element. Also we've added a SelectionChanged trigger to handle the clicks on menu items. It will call the command handler that's defined in a view-model i'll tell you about in a minute, and passes the ListBox's SelectedItem property as CommandParameter.
 
 SideMenuViewModel.cs:
 
-```c#
+{% highlight csharp %}
 namespace SampleProject.ViewModel
 {
     public class MenuItem
@@ -690,13 +691,13 @@ namespace SampleProject.ViewModel
         }
     }
 }
-```
+{% endhighlight %}
 
 We have a simple MenuItem class which is pretty straight forward. The rest is just as we already had. just simple Data binding. the new thing here, is the Messenger component to send the message. The message is just the name of the item. And it will be broadcasted to any class who has registered. Registering is also just as simple as this:
 
 MainViewModel.cs:
 
-```c#
+{% highlight csharp %}
 public MainViewModel(IDataService dataService, IBHNavigationService bHNavigation)
 {
     GeneralWelcome = "";
@@ -717,7 +718,7 @@ public MainViewModel(IDataService dataService, IBHNavigationService bHNavigation
             GeneralWelcome = item.Title;
         });
 }
-```
+{% endhighlight %}
 
 As you can see, we call "Register" function, and we pass in the current context, and a method to handle the message arrival. We simply append it to our message. And that's it. If you run the program (and login), you can see how changing the items will change the message.
 
