@@ -3,7 +3,7 @@ layout: post
 title: A brief desciption on Q-Learning and how it is implemented
 categories: [AI, ML, Q-Learning, Reinforcement learning]
 datetime: 04-09-2019
-author: Amin
+author: Amin Rezaeian
 readingtime: 7m
 ---
 

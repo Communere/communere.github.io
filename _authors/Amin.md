@@ -1,5 +1,5 @@
 ---
-name: Amin
+name: Amin Rezaeian
 position: Software engineer - AI & ML
 ---
 
