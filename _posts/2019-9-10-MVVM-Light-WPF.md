@@ -84,12 +84,12 @@ I’ll also add another folder Views for our XAML files. But later. First, let�
 
 App.xaml:
 
-```xml
+{% highlight xml %}
 <Application.Resources>
-        <vm:ViewModelLocator x:Key="Locator"
-                             d:IsDataSource="True" />
+<vm:ViewModelLocator x:Key="Locator"
+d:IsDataSource="True" />
 </Application.Resources>
-```
+{% endhighlight %}
 
 The `ViewModelLocator`, is a class defined in `ViewModelLocator.cs` file. This class, is the base class for our view-models. All other view-models must be registered here. (This is the design that mvvm light is using. It’s not defined in the mvvm standard and therefore, you are not obligated to use it.)
 
@@ -97,10 +97,10 @@ The `ViewModelLocator`, is a class defined in `ViewModelLocator.cs` file. This c
 
 ViewModelLocator.cs:
 
-```c#
+{% highlight csharp %}
 static ViewModelLocator()
 {
-    ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
     if (ViewModelBase.IsInDesignModeStatic)
     {
@@ -112,8 +112,9 @@ static ViewModelLocator()
     }
 
     SimpleIoc.Default.Register<MainViewModel>();
+
 }
-```
+{% endhighlight %}
 
 In this class, we have registered a Data Service, and View-model.
 
