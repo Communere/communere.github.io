@@ -7,7 +7,9 @@ author: Ali Rezaee
 readingtime: 20m
 ---
 
-This article focuses on MVVM Light and WPF.
+MVVM (Model-View-ViewModel) is a software architectural pattern, mostly used in WPF and other xaml based projects. It separates the UI design related codes from the back-end logic of the project. 
+
+In this article, we give a short review on MVVM and then move on to create a WPF project using MVVM Light toolkit and includes project creation, data bindings, navigation and messaging. 
 
 * TOC
 {:toc}
