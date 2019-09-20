@@ -88,7 +88,7 @@ else
 
 for (let i = pairs.length - 1; i >= 0; i--) {
 	let prevScore = pairs[i] in qvalues ? qvalues[pairs[i]] : 0; // retrieve the previous score of this pair, if any.
-	qvalues[pairs[i]] = ((1 - alpha) _ prevScore + alpha _ (reward _ discount _ score));
+	qvalues[pairs[i]] = ((1 - alpha) * prevScore + alpha * (reward * discount * score));
 	score = qvalues[pairs[i]];
 }
 {% endhighlight %}
