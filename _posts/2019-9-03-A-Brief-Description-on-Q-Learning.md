@@ -34,7 +34,7 @@ The definitions presented in this step are:
 
 <img src="/images/sunflower-3752842_960_720.jpg" />
 
-Put the agent at the start cell, and let it takes its first action! At the beginning, because of the unknown scores, its actions are taken randomely. However, when it reaches its first win/lose cell (reward or punishment cell), the cells in the path will be updated. In order not to take similar actions on first positive responce, or avoid a good path if it is failed somewhere at the end, an exploration mechanism is embeded into the learning phase of the Q-Learning. It means during the game, there is a probability that the agent select an action except the current best action. This is called the exploration probability. This is decreased during the learning process. It helps the agent to explore the environment at the beginning of the learning, and to focus on improving its final steps at the end.
+Put the agent at the start cell, and let it takes its first action! At the beginning, because of the unknown scores, its actions are taken randomely. However, when it reaches its first win/lose cell (reward or punishment cell), the cells in the path will be updated. In order not to take similar actions on the first positive responce, or avoid a good path if it is failed somewhere at the end, an exploration mechanism is embeded into the learning phase of the Q-Learning. It means during the game, there is a probability that the agent select an action except the current best action. This is called the exploration probability. This is decreased during the learning process. It helps the agent to explore the environment at the beginning of the learning, and to focus on improving its final steps at the end.
 
 ## Lets talk formula!
 
@@ -98,8 +98,8 @@ The complete working code is available in [this github repository](https://githu
 ### Implementation notes:
 - To develop Q-Learning, I make a big loop over all of the episodes I want to have, which could be unlimited.
 - Inside that loop, I put the agent in the starting state, and let it react to the environment based on its Q-values.
-- When the agent reaches to the end of the current episode (either by reaching a final state or the end of its permitted action numbers), I make a list out of its state, action pairs.
-- To avoid loops inside the list of state, action pairs, the actions which create a loop is not selected.
+- When the agent reaches the end of the current episode (either by reaching a final state or the end of its permitted action numbers), I have made a list out of its state, action pairs.
+- To avoid loops inside the list of state, action pairs, the actions which create a loop is not selected. It means that the agent waits on that cell to select another action on its next chance.
 - Starting from the end of the list, I apply the learning formula to all of the state, action pairs it traversed.
 - Instead of adding the reward, I simply multipied it. It helps not to be aware of reducing it while going backward through the list.
 
