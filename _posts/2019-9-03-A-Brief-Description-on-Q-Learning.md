@@ -63,11 +63,11 @@ let pairs = [];
 let s = environment.start();
 let a = null;
 for (let i = 0; i < maxEpisodeLength && !environment.isFinal(s); i++) {
-let actions = environment.actions(s);
-if (epsilon > Math.random()) // exploration vs exploitation
-a = actions.randomElement(); // explore
-else
-a = selectBest(s, actions); // exploit
+	let actions = environment.actions(s);
+	if (epsilon > Math.random()) // exploration vs exploitation
+		a = actions.randomElement(); // explore
+	else
+		a = selectBest(s, actions); // exploit
 
     let candidateState = environment.applyAction(s, a)
     if (pairs.map(p => p[0]).findIndex(state => state == candidateState) != -1)
@@ -75,22 +75,21 @@ a = selectBest(s, actions); // exploit
 
     pairs.push([s, a]);
     s = candidateState;
-
 }
 let score = 0;
 let reward = 1;
 if (environment.isFinal(s)) {
-score = environment.isFinal(s);
-if (score > 0)
-reward = 1.1;
+	score = environment.isFinal(s);
+	if (score > 0)
+		reward = 1.1;
 }
 else
-score = bestScore(s);
+	score = bestScore(s);
 
 for (let i = pairs.length - 1; i >= 0; i--) {
-let prevScore = pairs[i] in qvalues ? qvalues[pairs[i]] : 0; // retrieve the previous score of this pair, if any.
-qvalues[pairs[i]] = ((1 - alpha) _ prevScore + alpha _ (reward _ discount _ score));
-score = qvalues[pairs[i]];
+	let prevScore = pairs[i] in qvalues ? qvalues[pairs[i]] : 0; // retrieve the previous score of this pair, if any.
+	qvalues[pairs[i]] = ((1 - alpha) * prevScore + alpha * (reward * discount * score));
+	score = qvalues[pairs[i]];
 }
 {% endhighlight %}
 
