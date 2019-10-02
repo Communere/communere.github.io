@@ -1,16 +1,25 @@
 ---
 layout: post
-title:  "Implementing Solution to Multiple Traveling Salesman Problem"
+title:  "Implementing a Solution to Multiple Traveling Salesman Problem"
 date:   2019-09-28 08:35:53 +0330
 categories: AI Genetic
 ---
 
 <img src="/images/The-Litte-Cafe.jpg"/>
 
+## Before start
+
+[Online Multiple Traveling Salesman Problem Solver - MTSP Solver](https://ralthor.github.io/mtsp)
+
+[Source code for Multiple Traveling Salesman Problem Solver](https://github.com/ralthor/GeneticAlgorithm-TSP/tree/feature-multi-tsp)
+
+<hr/><br/>
+
+## What is Traveling Salesman Problem?
 Assume you are a traveling salesman, selling coffee. You want to start from your home, sell coffee to costumers at different places and return to your home. You are intelligent and you want to minimize the distance you travel. The route you choose will be a solution to the traveling salesman problem.
 
 ## How to solve?
-Traveling Salesman Problem (TSP) is proven to be unsolvable in polynomial time, therefore lots of heuristic/meta-heuristic algorithms are used to solve that and give near optimal solutions. [This link](https://github.com/parano/GeneticAlgorithm-Solving-TSP) is parano's genetic TSP solution. It is also available online.
+Traveling Salesman Problem (TSP) is proven to be unsolvable in polynomial time, therefore lots of heuristic/meta-heuristic algorithms are used to solve that and give near optimal solutions. [This link](https://github.com/parano/GeneticAlgorithm-Solving-TSP) is parano's genetic TSP solution. It is also [available online](http://parano.github.io/GeneticAlgorithm-TSP/).
 
 ### Genetic Algorithm
 If you are going to read the code mentioned above, it is good to know Genetic Algorithm and search for its methods inside the code.
@@ -19,7 +28,7 @@ If you are going to read the code mentioned above, it is good to know Genetic Al
 
 1. Population: in genetic algorithm, there is a pool of solutions, initialized randomly. Each solutions is called an individual, and the solution is coded inside it. In TSP, each individual is a rotating array of numbers, which shows a route between costumers. For example, `3 0 4 2 5 1` means going from `3` to `0`, then `4`, then `2` and so on. Note that it also goes from `1` to `3`, because the list is rotating. Therefore, it is equivalent with for example `2 5 1 3 0 4`.
 1. Initialization: random evaluation of the population is done here.
-1. Fitness function: since it is important to compare different solutions, a fitness functoin is defined. It accepts an individual and returns how much it feets. For TSP, it is defined as `evaluation` method, which returns the sum of the distances between the costumers. However, since it returns smaller values for better solutions, the fitness is defined as `1/evaluation`, which returns higher values as the given solution (passed individual) gets better.
+1. Fitness function: since it is important to compare different solutions, a fitness functoin is defined. It accepts an individual and returns how much it fits. For TSP, it is defined as `evaluation` method, which returns the sum of the distances between the costumers. However, since it returns smaller values for better solutions, the fitness is defined as `1/evaluation`, which returns higher values as the given solution (passed individual) gets better.
 1. Crossover: combines two individuals and creates new one(s). It is one of the most important parts of a Genetic Algorithm solution, and there are several scientific papres proposing different crossovers for TSP. The one that is used in parano's code, is a simple greedy algorithm which creates two children for each pair of parents. It starts from a random starting node (costumer), and add it to the child. Then it checks the next nodes after the starting node in both parents. Next node of the child will be selected from the parent in which the next node is closer to the starting node. For example, if starting node is `7`, and the next nodes in parents are `3` and `9` respectively, if `distance(7, 3) < distance(7, 9)` then `3` will be selected, otherwise `9` will be the next node. The other child is found going to the previous node of the selected node, instead of going to the next.
 1. Natural selection: or simply parent selection, selects a pair of fit parents from the population. They will be sent to crossover to create the new generation.
 1. Mutation: to search all of the solution space, the mutation is also happen to the population. It is done with low random probabilities such as 0.01. For TSP, again several different mutations are introduced. For example, swapping two random indices in the array, or reversing a random subset of the array in place. It is shown in the above image.
