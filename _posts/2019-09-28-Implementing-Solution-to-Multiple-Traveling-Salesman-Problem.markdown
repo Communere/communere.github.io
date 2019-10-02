@@ -2,7 +2,8 @@
 layout: post
 title:  "Implementing a Solution to Multiple Traveling Salesman Problem"
 date:   2019-09-28 08:35:53 +0330
-categories: AI Genetic
+categories: AI GeneticAlgorithm
+author: Amin Rezaeian
 ---
 
 <img src="/images/The-Litte-Cafe.jpg"/>
@@ -100,4 +101,4 @@ In above code, `sumForSalesman` is an array of the distance each salesman travel
 If you think this policy won't give the opimum solution every time, you are right! Here is an example, for the same path, 2+6 and 5+5 solutions are prefered over 1+6, although the sum for the last is smaller than those two.
 
 ## Conclusion
-There are lots of interesting problems to solve with regards Traveling Salesman Problem. For example, consider the salesmen are not bound to start and end from the same location, or some of them have constraints to visit a certain number of nodes (costumers), or travel a certain distance at most. In addition, several other crossover and mutation methods may be tested to help the method to find an acceptable answer earlier.
+There are lots of interesting problems to solve with regards Traveling Salesman Problem. For example, consider the salesmen are not bound to start and end from the same location, or some of them are constrained to visit a certain number of nodes (costumers), or travel a certain distance at most. In addition, several other crossover and mutation methods may be tested to help the method to find an acceptable answer earlier.
