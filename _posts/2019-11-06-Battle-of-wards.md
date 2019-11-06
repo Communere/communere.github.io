@@ -48,8 +48,10 @@ After applying the algorithm and regulating the parameters in the algorithm (i.e
 
 
 
+<figure>
 <img src="/images/ClustersOnMap.JPG" />
-*Visualisation of the clusters on the map*
+  <figcaption style="text-align: center;">Visualisation of the clusters on the map</figcaption>
+</figure>
 
 Cluster 1, which includes wards in the centre of two big towns in Surrey area (i.e., Guildford and Epsom), shows that more venues can cause more risk in the area. As the table below shows the number of crime committed in this cluster are significantly high. On the other hand, Cluster 3, is associated with wards that have a very low density of venues and a slight risk in terms of crime committed. However, Cluster 4, despite having a low density of the venues, it has a high risk where make these wards undesirable since they are neither enough accessible nor safe enough. These wards are mostly inside the M25 or near big town such as Woking or Redhill. Cluster 2 and 0 are slightly similar. They are wards with moderate density and relatively moderate risk. However, as presented on the map, Cluster 0 includes wards where most are located inside the M25, which make increases in specific categories of crime such as theft handling and vehicle interference in these areas. In general, the model confirms we should expect crime rises in busy/popular areas. The details of the model can be viewed on this [Jupyter notebook]( https://github.com/SepidehN/Coursera_Capstone/blob/master/TheBattleofNeighborhoods-Part2.ipynb ) 
 
