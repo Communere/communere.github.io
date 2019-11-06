@@ -9,12 +9,6 @@ author: Sepideh Nazemi
 Last summer, my family and I went to Paris. One night. We were out for dinner and were looking for a parking space near the restaurant we had targeted. While we were hunting a parking space near the restaurant, we got distance from it. So, we had to walk down a couple of streets to get to the restaurant. As we start walking, we felt unsafe since many strangers were wandering around or sitting in a group in the dark. We were worried about how safe it will be to return to our car in a couple of hours. We decided to go back to our car and find somewhere more close to the restaurant. Sadly, we couldn't find any parking space. So, We decided to call the restaurant and ask for their local expertise. We wondered **how safe this neighbourhood is**?
 
 The restaurant manager tried to convince us that *the neighbourhood is very safe due to the existence of many luxury pubs and restaurants in it*.
-<p align="center">
-<figure>
-<img src="/images/EiffelTower.png" />
-  <figcaption style="text-align: center;">Eiffel Tower (photoed by Behnam Bahmani)</figcaption>
-</figure>
-</p>
 
 Having this stressful experience during my holiday, I decided to examine the hypothesis that the restaurant's manager put forward to us. **I want to test whether a neighbourhood with a high number of venues are safe or not in comparison with the area with less number of venues?**
 
