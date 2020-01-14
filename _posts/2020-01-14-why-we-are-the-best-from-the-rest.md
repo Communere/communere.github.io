@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Communere ; why we are the best from the rest
+title: Communere - why we are the best from the rest
 categories: []
 datetime: 14-01-2020
 author: Sarah Murphy
