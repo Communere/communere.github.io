@@ -6,8 +6,6 @@ datetime: 14-01-2020
 author: Sarah Murphy
 ---
 
-## Communere ; why we are the best from the rest
-
 <figure>
 <img src="/images/remote_working.jpg" />
   <figcaption style="text-align: center;">source: unsplash</figcaption>
