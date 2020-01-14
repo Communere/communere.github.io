@@ -11,9 +11,9 @@ author: Sarah Murphy
   <figcaption style="text-align: center;">source: unsplash</figcaption>
 </figure>
 
-When it comes to choosing a Software Development As A Service company for your business, there are a number of choices available for Development and your products or services.
+When it comes to choosing a Software Development as a Service company for your business, there are a number of choices available for Development and your products or services.
 
-## Why choose remote Software Development As A Service (SDaaS)?
+## Why choose remote Software Development as a Service (SDaaS)?
 
 - It gives you the opportunity to tailor your technical projects with a London based programme Manager, allowing for changes to happen in real time
 - It allows you to have a project being worked on full time, on a remote basis with our team taking care of pension, salary and the conversations with the development team
@@ -21,7 +21,7 @@ When it comes to choosing a Software Development As A Service company for your b
 - UK timetable for the development team
 - Remote teams are more cost effective, time efficient and agile
 
-Communere is London’s leading remote Software Development As A Service team.
+Communere is London’s leading remote Software Development as a Service team.
 
 Our product is our people; we have a remote network of world class software developers who specialise in Angular, Artificial Intelligence, Backend, Frontend, Fullstack, React, React Native, GraphQL, among others, who are trained professionals who receive training both in the office and online to ensure they are knowledgeable and skilled to build your products.
 
