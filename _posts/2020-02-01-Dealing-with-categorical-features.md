@@ -39,7 +39,7 @@ print(Categorical_ohe.shape)
 Categorical_ohe
 ```
 
-figure>
+<figure>
 <img src="/images/EncodingImages/ohe-arrayOutput.JPG" />
 
   <figcaption style="text-align: center;"></figcaption>
@@ -68,7 +68,7 @@ Categorical_ohe1 = ohe.fit_transform(df['Embarked'].values.reshape(-1, 1)) # It 
 Categorical_ohe1
 ```
 
-figure>
+<figure>
 <img src="/images/EncodingImages/ohe-single-feature.JPG" />
 
   <figcaption style="text-align: center;"> </figcaption>
@@ -97,7 +97,7 @@ df[['Sex','Deck']].sample(6)
 
 **Note that in this case the result is a DataFrame as was the input.**
 
-figure>
+<figure>
 <img src="/images/EncodingImages/Labelencoder-ex1-dfsinglecolumn-multi-singleclass.JPG" />
 
   <figcaption style="text-align: center;"> </figcaption>
@@ -121,7 +121,7 @@ print(eEncoded_Sex_Deck.shape)
 leEncoded_Sex_Deck.reshape(1309,2)
 ```
 
-figure>
+<figure>
 <img src="/images/EncodingImages/Labelencoder-2dimentiondataframe.JPG" />
 
   <figcaption style="text-align: center;"></figcaption>
@@ -141,7 +141,7 @@ pd.get_dummies(df_categorical_data)
 
 ```
 
-figure>
+<figure>
 <img src="/images/EncodingImages/Get_dummies.JPG" />
 
   <figcaption style="text-align: center;"></figcaption>
@@ -162,7 +162,7 @@ df_categorical_data_dic = df_categorical_data.to_dict(orient='records') # turn e
 df_categorical_data_dic
 ```
 
-figure>
+<figure>
 <img src="/images/EncodingImages/DicExample.JPG" />
 
   <figcaption style="text-align: center;"></figcaption>
@@ -179,7 +179,7 @@ df_categorical_data_encoded = dv_df_categorical_data.fit_transform(df_categorica
 print (df_categorical_data_encoded)
 ```
 
-figure>
+<figure>
 <img src="/images/EncodingImages/DicvectorizerOutput.JPG" />
 
   <figcaption style="text-align: center;"></figcaption>
@@ -194,7 +194,7 @@ vocab = dv_df_categorical_data.vocabulary_
 vocab
 ```
 
-figure>
+<figure>
 <img src="/images/EncodingImages/VocabOutput.JPG" />
 
   <figcaption style="text-align: center;"></figcaption>
@@ -216,7 +216,7 @@ enc = OrdinalEncoder()
 enc.fit_transform(df_categorical_data)
 ```
 
-figure>
+<figure>
 <img src="/images/EncodingImages/OrdinalEncodeingExample.JPG" />
 
   <figcaption style="text-align: center;"></figcaption>
@@ -252,7 +252,7 @@ f.toarray()[:20]
 
 ```
 
-figure>
+<figure>
 <img src="/images/EncodingImages/FeatureHashing.JPG" />
 
   <figcaption style="text-align: center;"></figcaption>
