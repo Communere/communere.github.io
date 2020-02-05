@@ -53,7 +53,7 @@ cols = ohe.get_feature_names()  #get the column names using .get_feature_names()
 df_Categorical_ohe = pd.DataFrame(Categorical_ohe, columns=cols)  #convert the result matrix to datafarem (if necessary)
 ```
 
-figure>
+<figure>
 <img src="/images/EncodingImages/ohe-array-dataframe.JPG" />
 
   <figcaption style="text-align: center;"> </figcaption>
