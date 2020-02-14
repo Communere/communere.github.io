@@ -20,7 +20,7 @@ The dataset, I am using to demonstrate, is Titanic dataset available on Kaggle.
 ## outline
 * OneHot Encoding
 * Lable Encodeing
-* Get_dummies
+* Get_dummies 
 * DictVectorizer
 * OrdinalEncoder
 * FeatureHashing
