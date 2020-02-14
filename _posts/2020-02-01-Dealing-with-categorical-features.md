@@ -17,7 +17,7 @@ Encoding Categorical features is one of the fundamental feature engineerings pro
 Here, I am going to give a quick review of most common encoding techniques and how to apply them on the data. 
 The dataset, I am using to demonstrate, is Titanic dataset available on Kaggle.
 
-## outline
+## Outline
 * OneHot Encoding
 * Lable Encodeing
 * Get_dummies 
