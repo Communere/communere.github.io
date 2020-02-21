@@ -6,6 +6,11 @@ datetime: 06-11-2019
 author: Sepideh Nazemi
 ---
 
+<figure>
+<img src="/images/ml-dealing-with-categorical-features.jpg" />
+  <figcaption style="text-align: center;">source: unsplash</figcaption>
+</figure>
+
 Encoding Categorical features is one of the fundamental feature engineerings processes when using machine learning techniques. There are different techniques and packages to perform Encoding, but it can be not very clear which one to use or what exactly their differences are.
 Here, I am going to give a quick review of most common encoding techniques and how to apply them on the data.
 The dataset, I am using to demonstrate, is Titanic dataset available on Kaggle.
