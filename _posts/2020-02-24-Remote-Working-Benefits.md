@@ -7,7 +7,7 @@ author: Sarah Murphy
 ---
 
 <figure>
-<img src="/images/ml-dealing-with-categorical-features.jpg" />
+<img src="/images/remote_working_benefits.png" />
   <figcaption style="text-align: center;">source: unsplash</figcaption>
 </figure>
 
