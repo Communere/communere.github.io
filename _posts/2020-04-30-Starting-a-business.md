@@ -6,12 +6,12 @@ datetime: 06-04-2020
 author: Sarah Murphy
 ---
 
-Starting a business? Communere’s Step-by-Step Guide to Your Starting Your Company
-
 <figure>
 <img src="/images/start_a_business.png" />
   <figcaption style="text-align: center;">source: unsplash</figcaption>
 </figure>
+
+Starting a business? Communere’s Step-by-Step Guide to Your Starting Your Company
 
 You are walking to work and suddenly, a genius business idea pops into your mind. Or you have always dreamt of starting a business, although you have not had the time and resources, but now is different. Are you looking to turn the idea into a reality; here is a guide to those first steps you should take.
 
