@@ -7,11 +7,12 @@ author: Ali Rezaee
 readingtime: 20m
 ---
 
-Vue.js is an open-source model–view–viewmodel JavaScript framework for building user interfaces and single-page applications. It was created by Evan You, and is maintained by him and the rest of the active core team members coming from various companies such as Netlify and Netguru.
+Vue.js is an open-source model–view–viewmodel JavaScript framework for building user interfaces and single-page applications. It was created by Evan You, and is maintained by him and the rest of the active core team members coming from various companies such as Netlify and Netguru. (I just copied this from wikipedia)
 
 In this article, I'll go through creating a Todo application with 3 boards (Todo, Doing and Done).
 
 Note: This article is for those who are already pretty familiar with node.js and javascript frameworks such as React or Angular.
+
 Note2: I will also not go through too much details as to how or why things do other things. For that, you can probably read here [https://vuejs.org](https://vuejs.org)
 
 <img src="/images/vue/demo.gif">
@@ -63,11 +64,11 @@ This is how Vue has organized the files:
 
 the `main.ts` file is our starting point. It creates a `Vue` instance, and feeds it the store from Vuex.
 
-{% highlight ts %}
+{% highlight vue %}
 new Vue({
-store,
-render: h => h(App)
-}).\$mount("#app");
+  store,
+  render: h => h(App)
+}).$mount("#app");
 {% endhighlight %}
 
 the `App.vue` is our main component. It holds the whole application inside it. Currently in the default code, it shows an `img` and the `HelloWorld` component.
@@ -75,15 +76,14 @@ the `App.vue` is our main component. It holds the whole application inside it. C
 As you see, to render the component, we have a `template` tag that includes everything we want to render. We also have the `style` tag to write our css classes.
 
 The section inside the `script` tag, is where we write our javascript code.
-You can see that the `App` component, is written in class style. To define a class component, we use `@Component` to specify that this class is a component. You can read more about class Components here: https://class-component.vuejs.org
+You can see that the `App` component, is written in class style. To define a class component, we use `@Component` to specify that this class is a component. You can read more about class Components here: [https://class-component.vuejs.org](https://class-component.vuejs.org)
 
 It also registers the `HelloWorld` component, because it uses it in its template. To be able to use a component in a template, the component must be registered.
 
-For this example, we're not going to use the `HelloWorld` component. So let's remove that. In fact, let's remove everything inside the main div tag tag. And also let's remove the import for `HelloWorld`, it's registers and it's file.
+For this example, we're not going to use the `HelloWorld` component. So let's remove that. In fact, let's remove everything inside the main div tag. And also let's remove the import for `HelloWorld`, its registers and its file.
 
-{% highlight ts %}
+{% highlight vue %}
 <template>
-
   <div id="app">
   </div>
 </template>
@@ -108,7 +108,6 @@ export default class App extends Vue {}
   justify-content: flex-start;
 }
 </style>
-
 {% endhighlight %}
 
 # The code
@@ -131,9 +130,8 @@ For this structure to work, i'm going to create three main components:
 I will add the title header, in our `App.vue`. So let's first start with those:
 
 App.vue:
-{% highlight ts %}
+{% highlight vue %}
 <template>
-
   <div id="app">
     <h1 style="margin-bottom: 0;">The Learning</h1>
     <h3 style="margin-top: 0;">Todo Edition</h3>
@@ -171,9 +169,8 @@ in the `src` directory, create another directory and name it `views`. Then creat
 
 First, create the three main part:
 
-{% highlight ts %}
+{% highlight vue %}
 <template>
-
   <div class="home"></div>
 </template>
 
@@ -201,7 +198,7 @@ export default {
 And also let's register this component in `App.vue`
 
 App.vue:
-{% highlight ts %}
+{% highlight vue %}
 @Component({
   components: {
     Home
@@ -211,7 +208,7 @@ App.vue:
 
 Now let's add the create form. It's a simple form, containing only an input and a button. But, same as react, we will need states to handle the input. so first let's set up our `Home` component with a set of methods:
 
-{% highlight ts %}
+{% highlight vue %}
 <script lang="ts">
 import Vue from "vue";
 
@@ -224,9 +221,9 @@ export default {
   name: "Home",
   data: function() {
     return {
-    taskInput: "",
-    tasks: [] as Task[]
-  }
+      taskInput: "",
+      tasks: [] as Task[]
+    }
   },
   methods: {
     onInputChange: function(event: any) {
@@ -247,7 +244,7 @@ export default {
 
 and now the template:
 
-{% highlight ts %}
+{% highlight vue %}
 <template>
   <div class="home">
     <form class="form" v-on:submit="onCreate">
@@ -318,10 +315,10 @@ Our column component recieves 3 props:
 
   Let's get to it:
 
-{% highlight ts %}
+{% highlight vue %}
 <template>
   <div class="column-container">
-    <div class="header">{{ columnName }}</div>
+    <div class="header">{% raw %}{{ columnName }}{% endraw %}</div>
     <div
       id="cardContainer"
       class="body"
@@ -395,16 +392,16 @@ It's pretty straight forward. Now let's use this in our Home component:
 
 first register the component:
 
-{% highlight ts %}
+{% highlight vue %}
 import Column from "@/components/Column.vue";
 ...
 components: {
-    Column
-  },
+  Column
+},
 {% endhighlight %}
 
 And then let's add it to our template:
-{% highlight ts %}
+{% highlight vue %}
 <template>
   <div class="home">
     <div class="main">
@@ -460,7 +457,7 @@ And then let's add it to our template:
 
 Also add the onChange function to the methods:
 
-{% highlight ts %}
+{% highlight vue %}
 onChange: function(data: string, column: "Todo" | "Doing" | "Done") {
   const ind = this.tasks.findIndex(x => x.name === data);
   if (ind >= 0) {
@@ -481,14 +478,14 @@ And now our final component, the Cards.
 In the same directory, create a file named `Card.vue`
 Simply copy and paste the following inside it:
 
-{% highlight ts %}
+{% highlight vue %}
 <template>
   <div
     draggable="true"
     class="card-container"
     v-bind:id="item"
   >
-    {{ item }}
+  {% raw %}{{ item }}{% endraw %}
   </div>
 </template>
 
@@ -532,7 +529,7 @@ export default {
 
 And in the `Column.vu`, first register it on your own and then add it to template as such:
 
-{% highlight ts %}
+{% highlight vue %}
 <div
   id="cardContainer"
   class="body"
@@ -564,7 +561,7 @@ Checkout these two files:
 
 So let's set up the store. We need one state only and that is `draggedTask`. It holds the name of the task being dragged.
 
-{% highlight ts %}
+{% highlight vue %}
 export default new Vuex.Store({
   state: {
     draggedTask: ""
@@ -584,7 +581,7 @@ Using Vuex will be just as easy as defining it. Let's go to our Card component a
 Add `v-on:dragstart="drag"` to the main `div` in the `Card` component. And then define the `drag` function:
 
 Card.vue:
-{% highlight ts %}
+{% highlight vue %}
  methods: {
     drag: (event) => {
       store.commit("setDraggedTask", {taskName: event.target.id})
@@ -595,7 +592,7 @@ Card.vue:
 Go to the `Column` component and add the attributes for the drag to the `cardContainer`:
 
 Column.vue:
-{% highlight ts %}
+{% highlight vue %}
 <div
   id="cardContainer"
   class="body"
@@ -608,7 +605,7 @@ Column.vue:
 
 and then define the methods:
 
-{% highlight ts %}
+{% highlight vue %}
 methods: {
     allowDrop: (event) => event.preventDefault(),
     drop: function(event) {
@@ -630,7 +627,7 @@ Now that we can drag the tasks, let's create a delete function as well. How it w
 First add the trash can icon to the assets folder. You can use icon you like. Add it after the `form` element inside the `Home` component:
 
 Home.vue:
-{% highlight ts %}
+{% highlight vue %}
 <template>
 ...
   </form>
@@ -664,7 +661,7 @@ Vue uses `computed` for variables that need computing everytime they're being us
 
 Add `computed` at the same lever as `data` and `methods` inside the `Home` Component:
 
-{% highlight ts %}
+{% highlight vue %}
 computed: {
     showTrash() {
       return store.state.draggedTask !== ""
@@ -674,7 +671,7 @@ computed: {
 
 We also need to add the functions `deleteTask` and `allowDrop` to our methods:
 
-{% highlight ts %}
+{% highlight vue %}
 deleteTask: function() {
   const taskName = store.state.draggedTask;
   const ind = this.tasks.findIndex(x => x.name === taskName);
@@ -699,7 +696,7 @@ yarn add vue-cookies
 
 First add it to main.ts: 
 
-{% highlight ts %}
+{% highlight vue %}
 ...
 import VueCookies from "vue-cookies";
 ...
@@ -709,7 +706,7 @@ Vue.use(VueCookies);
 
 Make these changes to the Home Component:
 
-{% highlight ts %}
+{% highlight vue %}
 data: function() {
   return {
     tasks: JSON.parse(this.$cookies.get("tasks")) || [],
