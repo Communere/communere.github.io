@@ -3,7 +3,7 @@ layout: post
 title: Running a successful IT team remotely – The Communere Approach
 categories: []
 datetime: 24-03-2021
-author: Sepideh Nazemi
+author: Tommy Jones
 ---
 
 <figure>
