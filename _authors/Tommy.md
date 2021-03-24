@@ -1,6 +1,6 @@
 ---
 name: Tommy Jones
-position: Sales & Marketing Manager
+position: Business Development Manager
 ---
 
 Business Development Manager
