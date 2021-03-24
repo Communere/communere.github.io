@@ -6,8 +6,6 @@ datetime: 24-03-2021
 author: Sepideh Nazemi
 ---
 
-## Running a successful IT team remotely – The Communere Approach
-
 <figure>
 <img src="/images/Running-a-successful-IT-team-remotely.jpg" />
   <figcaption style="text-align: center;">Photo by Luke Peters on Unsplash
@@ -22,8 +20,8 @@ From the conversations we are having with senior IT decision-makers, most are cl
 
 So that got us thinking, how do we run an efficient remote team at Communere, and how do some of our clients do it so productively?
 
-- We run what we call a **‘virtual office’. **Utilising all Slack features, our developers can communicate and chat spontaneously as though they were in the office. We actively encourage this **constant conversation**, and we feel it goes along well in cementing our company culture.
-- We regularly check on our **IT teams home setups **and provide facilities for them to upgrade their laptops, monitors, keyboards, mouses, chairs and desks to the most suitable and ergonomic ones.
+- We run what we call a ‘virtual office‘. Utilising all Slack features, our developers can communicate and chat spontaneously as though they were in the office. We actively encourage this **constant conversation**, and we feel it goes along well in cementing our company culture.
+- We regularly check on our **IT teams home setups** and provide facilities for them to upgrade their laptops, monitors, keyboards, mouses, chairs and desks to the most suitable and ergonomic ones.
 - Many clients also tell us how they have mapped out a **training budget** to ensure their staff continue to progress, even if on a remote basis. We love this at Communere. We feel this is an absolute must to ensure you retain top talent. Our **weekly educational/technology** meetings help our team stay tuned to the emerging technologies.
 - To keep the fun part of the physical office alive, we introduced our **weekly remote tea party**. Our team gather remotely and enjoy talking about their hobbies, such as music, football, films.
 - **Team yoga**, get the whole IT team from 1st line to the Dev team joining in. It would make for some fabulous team photos, if nothing else.
